@@ -1,13 +1,13 @@
 Package: pkg23andMeGenome
-Title: What the Package Does (One Line, Title Case)
+Title: 23andMe Raw Data Utilities
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = c("Robert", "Maxwell"),
+           family = "Flight",
            role = c("aut", "cre"),
-           email = "first.last@example.com")
-Description: What the package does (one paragraph).
-License: What license it uses
+           email = "rflight79@gmail.com")
+Description: Provides utilities for working with 23andMe raw genome data.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.1
