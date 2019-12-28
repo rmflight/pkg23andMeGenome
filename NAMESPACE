@@ -2,10 +2,12 @@
 
 export("%>%")
 export(compare_rawdata)
+export(load_rsid)
 export(query_rsid)
 export(query_rsidlist)
 export(read_rsid)
 export(read_rsid_files)
+export(rsid_2_vars)
 import(purrr)
 import(rentrez)
 importFrom(magrittr,"%>%")
