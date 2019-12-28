@@ -37,13 +37,19 @@ rsid_2_vars = function(rsids, ...){
   vars = unlist(vars)
   
   rs2vars = purrr::map_df(rsids, function(in_rs){
-    message(in_rs$uid)
-    tmp_rs = in_rs[vars]
-    zero_len_var = vars[purrr::map_lgl(tmp_rs, ~ length(.x) == 0)]
-    for (ivar in zero_len_var) {
-      tmp_rs[[ivar]] = ""
+    #message(in_rs$uid)
+    null_vars = purrr::map_lgl(vars, ~ is.null(in_rs[[.x]]))
+    if (any(null_vars)) {
+      return(NULL)
+    } else {
+      tmp_rs = in_rs[vars]
+      zero_len_var = vars[purrr::map_lgl(tmp_rs, ~ length(.x) == 0)]
+      for (ivar in zero_len_var) {
+        tmp_rs[[ivar]] = ""
+      }
+      return(as.data.frame(tmp_rs, stringsAsFactors = FALSE))
     }
-    as.data.frame(tmp_rs, stringsAsFactors = FALSE)
+    
   })
   
   rs2vars
